@@ -25,3 +25,5 @@ import { AuthService } from './services/authservice.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// Teste
