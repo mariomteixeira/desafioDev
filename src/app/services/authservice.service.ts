@@ -32,6 +32,7 @@ export class AuthService {
         if (response.sessionID) {
           this.sessionToken = response.sessionID;
           localStorage.setItem('sessionToken', this.sessionToken);
+          localStorage.setItem('username', userName);
           this.startSessionTimer();
         }
         return response;

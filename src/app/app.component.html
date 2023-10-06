@@ -1,3 +1,12 @@
-<h3>Central IT 👩‍💻</h3>
-<p>senha do login: desafi0Dev1@</p>
+<nav class="navbar">
+  <img src="assets/logotipo-centralit.png" alt="Central IT Logo" class="logo">
+  
+  <div *ngIf="showLogoutButton" class="user-info">
+    <div class="user-box">
+      <span class="user-initial">{{ userInitial }}</span>
+      <span class="username">{{ username }}</span>
+    </div>
+    <button (click)="logoutNavbar()" class="logout-button">Logout</button>
+  </div>
+</nav>
 <router-outlet></router-outlet>
