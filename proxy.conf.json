@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://gsm-hmg.centralitcloud.com.br",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

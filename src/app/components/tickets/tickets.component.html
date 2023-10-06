@@ -1,0 +1,94 @@
+<div>
+  <h2>Filtrar por Situação do Ticket:</h2>
+  <form (submit)="postRequest()">
+    <div>
+      <label for="situacao">Situação:</label>
+      <select id="situacao" name="situacao" [(ngModel)]="filterSituacao">
+        <option value="">Todos</option> <!-- Opção padrão -->
+        <option *ngFor="let opcao of optionsSituacao" [value]="opcao">{{ opcao }}</option>
+      </select>
+    </div>
+    <div>
+      <h2>Filtrar por Usuário</h2>
+      <div>
+        <label for="usuario">Usuário:</label>
+        <select id="usuario" name="usuario" [(ngModel)]="filterUsuario">
+          <option value="">Todos</option> <!-- Opção padrão -->
+          <option *ngFor="let usuario of uniqueUsers" [value]="usuario">{{ usuario }}</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <h2>Filtrar por Prioridade (ID)</h2>
+      <label for="prioridade">Prioridade:</label>
+      <select id="prioridade" name="prioridade" [(ngModel)]="filteridPrioridade">
+        <option value="">Todos</option> <!-- Opção padrão -->
+        <option value="1">Prioridade 1</option>
+        <option value="2">Prioridade 2</option>
+        <option value="3">Prioridade 3</option>
+        <option value="4">Prioridade 4</option>
+        <option value="5">Prioridade 5</option>
+      </select>
+    </div>
+    <div>
+      <h2>Filtrar por Origem do Atendimento:</h2>
+      <div>
+        <label for="origemAtendimento">Origem do Atendimento:</label>
+        <select id="origemAtendimento" name="origemAtendimento" [(ngModel)]="filterOrigemAtendimento">
+          <option value="">Todos</option> <!-- Opção padrão -->
+          <option *ngFor="let origem of optionsOrigemAtendimento" [value]="origem">{{ origem }}</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <h2>Filtrar por ID da Solicitação:</h2>
+      <label for="idSolicitacao">ID da Solicitação:</label>
+      <input type="number" id="idSolicitacao" name="idSolicitacao" [(ngModel)]="filterIdSolicitacao">
+    </div>
+    <div>
+      <h2>Filtrar por Nota:</h2>
+      <label for="nota">Nota:</label>
+      <select id="nota" name="nota" [(ngModel)]="filterNota">
+        <option value="">Todos</option> <!-- Opção padrão -->
+        <option *ngFor="let notaOption of optionsNota" [value]="notaOption">{{ notaOption }}</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Filtrar</button>
+      <button type="button" (click)="resetFilters()">Limpar Filtros</button>
+    </div>
+  </form>
+</div>
+<div>
+  <div>
+    <h2>Resultados da Busca</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID da Solicitação</th>
+          <th>Situação</th>
+          <th>Usuário</th>
+          <th>Prioridade</th>
+          <th>Origem do Atendimento</th>
+          <th>Data da Solicitação</th>
+          <th>Data Limite</th>
+          <th>Nota do Atendimento</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of filteredTickets">
+          <td>{{ ticket.idsolicitacaoservico }}</td>
+          <td>{{ ticket.situacao }}</td>
+          <td>{{ ticket.Usuario | uppercase }}</td>
+          <td>{{ ticket.idprioridade }}</td>
+          <td>{{ ticket.OrigemAtendimento }}</td>
+          <td>{{ ticket.data_solicitacao }}</td>
+          <td>{{ ticket.data_limit }}</td>
+          <td>{{ ticket.nota }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="filteredTickets.length === 0">Nenhum ticket encontrado com os filtros aplicados.</p>
+  </div>
+</div>
