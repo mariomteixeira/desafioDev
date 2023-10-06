@@ -13,6 +13,7 @@ export class TicketComponent implements OnInit {
     nota: false,
   }
 
+  // Função para resetar os filtros para os valores originais e resetar a table para o estado inicial
   resetFilters(): void {
   this.filterOrigemAtendimento = '';
   this.filterSituacao = '';
@@ -20,7 +21,6 @@ export class TicketComponent implements OnInit {
     this.filteridPrioridade = '';
     this.filterIdSolicitacao = '';
     this.filterNota = '';
-    // Limpar o array de tickets filtrados
     this.filteredTickets = [];
   }
 

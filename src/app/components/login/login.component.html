@@ -1,16 +1,32 @@
-<div>
-  <h2>Login</h2>
-  <form (submit)="onSubmit()">
-    <div>
-      <label for="username">Nome de Usuário:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="container">
+  <div class="login-container">
+    <img src="../../../assets/logotipo-centralit.png" alt="Logo" class="logo-image">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <div class="input-prefix-container">
+            <div class="input-prefix">citsmart.local</div>
+            <input type="email" formControlName="username" class="form-control with-prefix" placeholder="Insira seu usuário">
+          </div>
+          <div *ngIf="usernameControl?.errors?.['required'] && usernameControl?.touched" class="error">
+            Campo usuário obrigatório!
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" formControlName="password" class="form-control" placeholder="Insira sua senha">
+          <div *ngIf="passwordControl?.errors?.['required'] && passwordControl?.touched" class="error">
+            Campo senha obrigatório!
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success">ENTRAR</button>
+        </div>
+      </div>
     </div>
-    <div>
-      <label for="password">Senha:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngIf="loginFailed" class="alert alert-danger">Usuário ou Senha incorretas.</div>
+      </div>
     </div>
-    <div>
-      <button type="submit">Entrar</button>
-    </div>
-  </form>
-</div>
+  </div>
+</form>
