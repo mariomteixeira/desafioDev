@@ -9,8 +9,8 @@
 
 .d-flex.align-items-center > label,
 .d-flex.align-items-center > select {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .sortable {

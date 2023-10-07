@@ -6,27 +6,27 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginFailed: boolean = false;
 
   constructor(
-    private fb: FormBuilder, 
-    private authService: AuthService, 
+    private fb: FormBuilder,
+    private authService: AuthService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
   get usernameControl() {
     return this.loginForm.get('username');
   }
-  
+
   get passwordControl() {
     return this.loginForm.get('password');
   }
@@ -42,13 +42,12 @@ export class LoginComponent implements OnInit {
       this.loginForm.markAllAsTouched();
       return;
     }
-    
+
     const { username, password } = this.loginForm.value;
 
     this.authService.login(username, password).subscribe(
       (response) => {
         if (response.sessionID) {
-          console.log('Login bem-sucedido. SessionID:', response.sessionID);
           this.router.navigate(['/tickets']);
         } else {
           console.error('Erro de login. Não foi possível obter o SessionID.');
