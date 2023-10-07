@@ -1,31 +1,59 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="container">
   <div class="login-container">
-    <img src="../../../assets/logotipo-centralit.png" alt="Logo" class="logo-image">
+    <img
+      src="../../../assets/logotipo-centralit.png"
+      alt="Logo"
+      class="logo-image"
+    />
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
           <div class="input-prefix-container">
             <div class="input-prefix">citsmart.local</div>
-            <input type="email" formControlName="username" class="form-control with-prefix" placeholder="Insira seu usuário">
+            <input
+              type="email"
+              formControlName="username"
+              class="form-control with-prefix"
+              placeholder="Insira seu usuário"
+            />
           </div>
-          <div *ngIf="usernameControl?.errors?.['required'] && usernameControl?.touched" class="error">
+          <div
+            *ngIf="usernameControl?.errors?.['required'] && usernameControl?.touched"
+            class="error"
+          >
             Campo usuário obrigatório!
           </div>
         </div>
         <div class="form-group">
-          <input type="password" formControlName="password" class="form-control" placeholder="Insira sua senha">
-          <div *ngIf="passwordControl?.errors?.['required'] && passwordControl?.touched" class="error">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Insira sua senha"
+          />
+          <div
+            *ngIf="passwordControl?.errors?.['required'] && passwordControl?.touched"
+            class="error"
+          >
             Campo senha obrigatório!
           </div>
         </div>
         <div class="form-group">
-          <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success">ENTRAR</button>
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="btn btn-success"
+          >
+            ENTRAR
+          </button>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div *ngIf="loginFailed" class="alert alert-danger">Usuário ou Senha incorretas.</div>
+        <div *ngIf="loginFailed" class="alert alert-danger">
+          Usuário ou Senha incorretas.
+        </div>
       </div>
     </div>
   </div>
