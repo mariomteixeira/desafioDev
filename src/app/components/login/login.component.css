@@ -67,3 +67,20 @@ body {
   margin-top: 20px;
   align-self: flex-end;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: end;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+.github-link {
+  margin-left: 5px;
+}
+
+.github-icon {
+  width: 25px;
+}
