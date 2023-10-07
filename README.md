@@ -16,20 +16,20 @@ Antes de iniciar, certifique-se de que o [Node.js](https://nodejs.org/en/) e o [
 
 ### Passos para Executar o Projeto:
 
+
 1. **Clone o Repositório**
    ```sh
    git clone https://github.com/mariomteixeira/desafio-dev.git
    ```
-
 2. **Instale as Dependencias do Projeto**
-  ```sh
-  npm install
-  ```
+    ```sh
+    npm install
+    ```
 3. **Inicie o Projeto**
-  ```sh
-  npm start
-  ```
+    ```sh
+     npm start
+    ```
 4. **Acesse o Projeto**
-  ```sh
-  http://localhost:4200/
-  ```
+    ```sh
+    http://localhost:4200/
+    ```
