@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/authservice.service';
 import { Router } from '@angular/router';
 
@@ -7,14 +8,28 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  username: string = '';
-  password: string = '';
-  sessionToken: string = '';
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  loginFailed: boolean = false;
 
-  sessionTimer?: ReturnType<typeof setTimeout>;
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router
+  ) {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-  constructor(private authService: AuthService, private router: Router) {}
+  get usernameControl() {
+    return this.loginForm.get('username');
+  }
+  
+  get passwordControl() {
+    return this.loginForm.get('password');
+  }
 
   ngOnInit() {
     if (this.authService.getSessionToken()) {
@@ -22,24 +37,27 @@ export class LoginComponent {
     }
   }
 
-  ngOnDestroy() {
-    if (this.sessionTimer) {
-      clearTimeout(this.sessionTimer);
-    }
-  }
-
   onSubmit() {
-    this.authService.login(this.username, this.password).subscribe(
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+    
+    const { username, password } = this.loginForm.value;
+
+    this.authService.login(username, password).subscribe(
       (response) => {
         if (response.sessionID) {
           console.log('Login bem-sucedido. SessionID:', response.sessionID);
           this.router.navigate(['/tickets']);
         } else {
           console.error('Erro de login. Não foi possível obter o SessionID.');
+          this.loginFailed = true;
         }
       },
       (error) => {
         console.error('Erro de login:', error);
+        this.loginFailed = true;
       }
     );
   }

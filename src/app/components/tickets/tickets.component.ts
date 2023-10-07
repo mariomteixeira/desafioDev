@@ -3,8 +3,11 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { ITickets } from "../../interface/ITickets";
 import { AuthService } from "src/app/services/authservice.service";
 
-@Component({ selector: 'post-request', templateUrl: './tickets.component.html' })
+@Component({ selector: 'post-request', templateUrl: './tickets.component.html', styleUrls: ['./tickets.component.css'] })
 export class TicketComponent implements OnInit {
+  isDesc: boolean = false;
+  viewingTicketId: number | null = null;
+  showDetails: boolean = false;
   // global state dos inputs
   selectedFields: any = {
     situacao: false,
@@ -13,6 +16,7 @@ export class TicketComponent implements OnInit {
     nota: false,
   }
 
+  // Função para resetar os filtros para os valores originais e resetar a table para o estado inicial
   resetFilters(): void {
   this.filterOrigemAtendimento = '';
   this.filterSituacao = '';
@@ -20,8 +24,15 @@ export class TicketComponent implements OnInit {
     this.filteridPrioridade = '';
     this.filterIdSolicitacao = '';
     this.filterNota = '';
-    // Limpar o array de tickets filtrados
     this.filteredTickets = [];
+  }
+
+  toggleView(ticketId: number): void {
+    this.viewingTicketId = this.viewingTicketId === ticketId ? null : ticketId;
+  }
+
+  toggleDetails(ticket: ITickets): void {
+    ticket.showDetails = !ticket.showDetails;
   }
 
   // opções de filtros
@@ -49,6 +60,9 @@ export class TicketComponent implements OnInit {
   filteridPrioridade: string = '';
   filterIdSolicitacao: string = '';
   filterNota: string = '';
+  p: number = 1;
+  itemsPerPage: number = 10;
+  column: string = '';
 
   url = "https://gsm-hmg.centralitcloud.com.br/citsmart/services/data/query"
 
@@ -60,6 +74,24 @@ export class TicketComponent implements OnInit {
     if (sessionToken) {
       this.loadUniqueUsers(sessionToken);
     }
+  }
+
+  sortTable(property: string): void {
+    // Alternar entre ascendente e descendente
+    this.isDesc = !this.isDesc;
+    this.column = property;
+    let direction = this.isDesc ? 1 : -1;
+
+    // Fazer a ordenação dos tickets
+    this.filteredTickets.sort((a: any, b: any) => {
+      if (a[property] < b[property]) {
+        return -1 * direction;
+      } else if (a[property] > b[property]) {
+        return 1 * direction;
+      } else {
+        return 0;
+      }
+    });
   }
 
   loadUniqueUsers(sessionToken: string) {

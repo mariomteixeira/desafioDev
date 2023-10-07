@@ -1,0 +1,63 @@
+.btn-spacing {
+  margin-left: 10px;
+}
+
+.d-flex.align-items-center > label {
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.d-flex.align-items-center > label,
+.d-flex.align-items-center > select {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sortable:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+th {
+  text-align: center;
+}
+
+.td-class {
+  text-align: center;
+}
+
+.details-container {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+.details-container .row {
+  margin-bottom: 5px;
+}
+
+.details-container .row:last-child {
+  margin-bottom: 0;
+}
+
+.details-container strong {
+  font-size: 0.9em;
+}
+
+.detail-item {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f8f9fa;
+  margin-left: 20px;
+}
+
+.detail-item:not(:last-child) {
+  margin-right: 5px;
+}
