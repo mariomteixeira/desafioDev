@@ -19,7 +19,7 @@ Antes de iniciar, certifique-se de que o [Node.js](https://nodejs.org/en/) e o [
 
 1. **Clone o Repositório**
    ```sh
-   git clone https://github.com/mariomteixeira/desafio-dev.git
+   git clone https://github.com/mariomteixeira/desafioDev
    ```
 2. **Instale as Dependencias do Projeto**
     ```sh
