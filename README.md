@@ -1,32 +1,37 @@
-<<<<<<< HEAD
-# desafioDev
 Desafio DEV para Central IT
 =======
-# DesafioDev
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Repositório do projeto DesafioDev! Este projeto é uma aplicação web desenvolvida com diversas tecnologias voltadas para o ambiente Angular, com o propósito de gerenciar tickets de atendimento.
 
-## Development server
+## 🚀 Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular ^16.2.0**: Framework para construção da aplicação frontend.
+- **Angular Material ^16.2.7**: Componentes de UI para Angular seguindo as especificações do Material Design.
+- **Ng-Bootstrap ^15.1.1**: Componentes nativos do Bootstrap para Angular.
+- **Bootstrap ^5.2.3**: Framework de design para criar interfaces amigáveis e responsivas.
+- **Ngx-Pagination ^6.0.3**: Biblioteca para controle de paginação de dados.
+- **RxJS ~7.8.0**: Biblioteca para programação reativa usando Observables.
+  
+## 🚀 Iniciando o Projeto
 
-## Code scaffolding
+Antes de iniciar, certifique-se de que o [Node.js](https://nodejs.org/en/) e o [NPM](https://www.npmjs.com/) estão instalados em sua máquina.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Passos para Executar o Projeto:
 
-## Build
+1. **Clone o Repositório**
+   ```sh
+   git clone https://github.com/seuusuario/desafio-dev.git
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
->>>>>>> fb243c2 (Parte principal do backend com os filtros principais do projeto.)
+2. **Instale as Dependencias do Projeto**
+  ```sh
+  npm install
+  ```
+3. **Inicie o Projeto**
+  ```sh
+  npm start
+  ```
+4. **Acesse o Projeto**
+  ```sh
+  http://localhost:4200/
+  ```
