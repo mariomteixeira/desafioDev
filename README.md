@@ -1,7 +1,5 @@
-Desafio DEV para Central IT
-=======
 
-Repositório do projeto DesafioDev! Este projeto é uma aplicação web desenvolvida com diversas tecnologias voltadas para o ambiente Angular, com o propósito de gerenciar tickets de atendimento.
+# Repositório do projeto DesafioDev.
 
 ## 🚀 Tecnologias Utilizadas
 
