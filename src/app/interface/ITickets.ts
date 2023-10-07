@@ -7,7 +7,7 @@ export interface ITickets {
   // prazohh: number | null;
   // unidade: string;
   // datahorafim: string;
-  // Atividade: string;
+  Atividade: string;
   // DescricaoJustSuspensao: string | null;
   // idsolicitante: number;
   // data_fim: string;
@@ -21,19 +21,19 @@ export interface ITickets {
   // DescricaoUltimaOcorrencia: string;
   idsolicitacaoservico: number;
   // situacaosla: string;
-  // tipoDemanda: string;
-  // Servico: string;
+  tipoDemanda: string;
+  Servico: string;
   // tempoatrasomm: number;
   // idacordonivelservico: number;
   // prazomm: number;
   // Responsavel: string;
   // Portfolio: string;
   // tempoMedioMin: number;
-  // GrupoAtual: string;
+  GrupoAtual: string;
   // datahorasuspensao: string | null;
-  // Descricao: string;
+  Descricao: string;
   // titulosla: string;
-  // Contrato: string;
+  Contrato: string;
   // nomeprioridade: string;
   // datahorasuspensaosla: string | null;
   // horaabertura: string;
@@ -41,4 +41,5 @@ export interface ITickets {
   // slaAtrasado: string;
   // tempoatendimentomm: number;
   // idGrupoAtual: number | null;
+  showDetails: boolean;
 }

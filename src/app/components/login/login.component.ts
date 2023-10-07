@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.invalid) {
-      // Se o formulário for inválido, marque todos os controles como tocados para mostrar as mensagens de erro
       this.loginForm.markAllAsTouched();
       return;
     }
