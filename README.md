@@ -1,6 +1,13 @@
 
 # Repositório do projeto DesafioDev.
 
+## Resumo do Projeto.
+- O projeto tem como intenção consumir o retorno de dados da API que foi fornecida, utilizando também um
+  método de autenticação e de login que só realiza o login após realizar a autenticação que também é feita
+  pelo retorno com sucesso da API.
+- Após o retorno da API os dados são tratados e filtrados pelos filtros correspondentes, também é possível
+  filtrar pelos headers da tabela, de forma que existe diversas possibilidades de filtragem e organização.
+
 ## 🚀 Tecnologias Utilizadas
 
 - **Angular ^16.2.0**: Framework para construção da aplicação frontend.
